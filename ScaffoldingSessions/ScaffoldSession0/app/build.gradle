@@ -61,4 +61,6 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
     //extended icons
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
+    //coil image library
+    implementation("io.coil-kt:coil-compose:2.2.0")
 }

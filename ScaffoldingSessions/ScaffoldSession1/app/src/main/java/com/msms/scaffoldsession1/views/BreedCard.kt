@@ -21,6 +21,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImagePainter.State.Empty.painter
+import coil.compose.rememberAsyncImagePainter
 import com.msms.scaffoldsession1.R
 
 @Composable
@@ -35,8 +37,11 @@ fun BreedCard(breed: Breed) {
     ) {
         Row(modifier = Modifier.padding(8.dp)
         ) {
-            Image(painter = painterResource(R.drawable.cat) , contentDescription = "Cat Image",
-                modifier = Modifier
+            Image(
+//            painter = painterResource(R.drawable.cat) , contentDescription = "Cat Image",
+            painter = rememberAsyncImagePainter(breed.image.url), contentDescription = "Cat Image",
+
+            modifier = Modifier
                     .size(40.dp)
                     .clip(CircleShape)
                     .border(1.5.dp,MaterialTheme.colors.secondaryVariant, CircleShape)

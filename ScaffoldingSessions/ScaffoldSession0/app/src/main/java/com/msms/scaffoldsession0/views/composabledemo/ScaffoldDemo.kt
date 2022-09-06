@@ -1,21 +1,31 @@
 package com.msms.scaffoldsession0.views.composabledemo
 
 import android.annotation.SuppressLint
+import android.net.Uri
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberAsyncImagePainter
 import kotlinx.coroutines.launch
 
 
@@ -149,6 +159,12 @@ fun Body() {
 
 @Composable
 fun Drawer() {
+    var profileImage by rememberSaveable { mutableStateOf(Uri.parse("")) }
+    val galleryLauncher =
+        rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) {
+            profileImage = it
+        }
+
     // Column Composable
     Column(
         Modifier
@@ -157,7 +173,29 @@ fun Drawer() {
     ) {
         // Repeat is a loop which
         // takes count as argument
-        repeat(5) { item ->
+        Image(
+            painter = rememberAsyncImagePainter(profileImage),
+            contentScale = ContentScale.Crop,
+            contentDescription = null,
+
+            modifier = Modifier
+                .padding(16.dp, 8.dp)
+                .size(100.dp)
+                .clip(CircleShape)
+                .border(1.5.dp, MaterialTheme.colors.secondaryVariant, CircleShape)
+                .clickable {
+                    galleryLauncher.launch("image/*")
+                }
+        )
+        Text(text = "Share...", color = Color.Black,
+            modifier = Modifier
+                .padding(8.dp)
+                .clickable {
+
+                }
+        )
+
+        repeat(3) { item ->
             Text(text = "Item number $item", modifier = Modifier.padding(8.dp), color = Color.Black)
         }
     }
