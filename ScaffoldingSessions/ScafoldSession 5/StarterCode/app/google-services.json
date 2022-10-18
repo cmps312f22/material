@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "933146453829",
+    "project_id": "fireship-20ef4",
+    "storage_bucket": "fireship-20ef4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933146453829:android:b507f5850706ab7319c02c",
+        "android_client_info": {
+          "package_name": "com.example.projecttracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "933146453829-76vhkni2hbdi7bc0oe7f3onlvqnk45pv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQdoHzOylCxdIvSDXAOj8kTPk391ULCZ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "933146453829-76vhkni2hbdi7bc0oe7f3onlvqnk45pv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

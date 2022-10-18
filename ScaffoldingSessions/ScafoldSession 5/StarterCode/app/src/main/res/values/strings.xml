@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Fire Ship</string>
+    <string name="add_project">Add Project</string>
+    <string name="edit_project">Edit Project</string>
+</resources>
