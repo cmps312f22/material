@@ -1,4 +1,4 @@
-package com.example.projecttracker.view.home
+package com.example.projecttracker.view.login
 
 import android.util.Log
 import androidx.compose.foundation.clickable

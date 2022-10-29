@@ -17,7 +17,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.projecttracker.util.getCurrentRoute
-import com.example.projecttracker.view.home.UserProfile
+import com.example.projecttracker.view.login.UserProfile
 import com.example.projecttracker.viewmodel.AuthViewModel
 import com.example.projecttracker.viewmodel.TodoViewModel
 import kotlinx.coroutines.launch

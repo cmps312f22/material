@@ -36,8 +36,7 @@ fun ProjectList(
         viewModel<TodoViewModel>(viewModelStoreOwner = LocalContext.current as ComponentActivity)
     val authViewModel =
         viewModel<AuthViewModel>(viewModelStoreOwner = LocalContext.current as ComponentActivity)
-
-
+    
     val projects by todoViewModel.projects.asStateFlow().collectAsState()
 
     authViewModel.user?.email?.let { todoViewModel.getProjects(it) }
