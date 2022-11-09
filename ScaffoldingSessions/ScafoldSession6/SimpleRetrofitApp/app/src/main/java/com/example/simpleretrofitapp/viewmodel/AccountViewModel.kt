@@ -1,5 +1,6 @@
 package com.example.simpleretrofitapp.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.simpleretrofitapp.data.model.Account
@@ -19,8 +20,11 @@ class AccountViewModel : ViewModel() {
     init {
         getAccounts()
     }
-
     private fun getAccounts() = viewModelScope.launch(Dispatchers.IO) {
-        accounts.value = withContext(Dispatchers.Default) { AccountRepo.getAccounts() }
+        val data = withContext(Dispatchers.Default) { AccountRepo.getAccounts()}
+
+        Log.d("TAG", "getAccounts: $data")
+
+
     }
 }
