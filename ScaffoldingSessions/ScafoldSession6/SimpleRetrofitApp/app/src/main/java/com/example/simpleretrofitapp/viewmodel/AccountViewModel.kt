@@ -22,7 +22,9 @@ class AccountViewModel : ViewModel() {
         getAccounts()
     }
     private fun getAccounts() = viewModelScope.launch(Dispatchers.IO) {
-        val data = withContext(Dispatchers.Default) { AccountRepo.getAccounts()}
+//        val data = withContext(Dispatchers.Default) { AccountRepo.getAccounts()}
+        val data =
+            withContext(Dispatchers.Default) { AccountRepo.getAccounts() }
 
         Log.d("TAG", "getAccounts: $data")
 

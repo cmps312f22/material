@@ -1,6 +1,8 @@
 package com.example.simpleretrofitapp.data.remote.repo
 
+import com.example.simpleretrofitapp.data.remote.api.AccountApi
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 object AccountRepo {
 
@@ -8,9 +10,11 @@ object AccountRepo {
 
     val accountApi by lazy {
         Retrofit.Builder()
-            .baseUrl()
-            .addConverterFactory()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create()
+            .create(AccountApi::class.java)
     }
+
+    fun getAccounts() = accountApi.getAccounts()
 }
